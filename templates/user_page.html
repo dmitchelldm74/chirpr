@@ -50,7 +50,7 @@ function cancel_collapse_click(el, el2){
                 <button id="cancel_collapse" onclick="cancel_collapse_click(this, document.getElementById('save'))" class="btn btn-block btn-warning" data-toggle="collapse" data-target="#editbio">Edit Bio</button><button id="save" onclick="document.getElementById('form1').submit();" class="btn btn-warning hidden">Save</button>
             </div>
         {% else %}
-            <div class="container">{{ user_data['bio'] }}</div>
+            <div class="container">{% autoescape false %}{{ markdown(user_data['bio']) }}{% endautoescape %}</div>
         {% endif %}
       <div class="panel-body">Followed By: {{ user_data['count_followers'] }}</div>
   {% else %}
